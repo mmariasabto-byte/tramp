@@ -27,13 +27,13 @@ export const BrandsSection = () => {
         {/* Header */}
         <div className="mb-12 text-center">
           <div className="mb-4 inline-block">
-            <div className="diagonal-cut-full bg-primary/10 px-4 py-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-primary">
+            <div className="bg-primary/10 border-l-4 border-primary px-4 py-2 rounded">
+              <span className="text-sm font-semibold tracking-wide text-primary">
                 Montadoras
               </span>
             </div>
           </div>
-          <h2 className="mb-4 font-display text-3xl font-black uppercase tracking-tight text-foreground md:text-5xl">
+          <h2 className="mb-4 font-display text-3xl font-bold text-foreground md:text-5xl">
             Peças Para Todas as Marcas
           </h2>
           <p className="mx-auto max-w-2xl text-muted-foreground">
@@ -46,18 +46,17 @@ export const BrandsSection = () => {
           {brands.map((brand, index) => (
             <Card 
               key={index}
-              className="group automotive-hover metallic-shine relative overflow-hidden border-border bg-card p-6 transition-all"
-              style={{ animationDelay: `${index * 0.05}s` }}
+              className="group modern-hover relative overflow-hidden border-border bg-card p-6 transition-all rounded-xl"
             >
               <div className="relative z-10 flex flex-col items-center justify-center space-y-4">
                 {/* Brand Color Indicator */}
                 <div 
-                  className="h-12 w-12 rounded-full border-2 border-border shadow-metallic"
+                  className="h-12 w-12 rounded-full border-2 border-border shadow-sm"
                   style={{ backgroundColor: brand.color }}
                 />
                 
                 {/* Brand Name */}
-                <h3 className="font-display text-center text-sm font-bold uppercase tracking-wide text-foreground">
+                <h3 className="font-display text-center text-sm font-semibold text-foreground">
                   {brand.name}
                 </h3>
                 

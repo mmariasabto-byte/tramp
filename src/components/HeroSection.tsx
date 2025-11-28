@@ -20,14 +20,14 @@ export const HeroSection = () => {
       <div className="container relative mx-auto px-4 py-20 md:py-32">
         <div className="max-w-3xl">
           <div className="mb-6 inline-block">
-            <div className="diagonal-cut-tl bg-primary px-4 py-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-primary-foreground">
+            <div className="bg-primary/10 border-l-4 border-primary px-4 py-2 rounded">
+              <span className="text-sm font-semibold tracking-wide text-primary">
                 Líder em Auto Peças
               </span>
             </div>
           </div>
           
-          <h2 className="mb-6 font-display text-4xl font-black uppercase leading-tight tracking-tight text-foreground md:text-6xl lg:text-7xl">
+          <h2 className="mb-6 font-display text-4xl font-bold leading-tight text-foreground md:text-6xl lg:text-7xl">
             Peças Automotivas<br />
             <span className="text-primary">Para Todas as Montadoras</span>
           </h2>
@@ -40,7 +40,7 @@ export const HeroSection = () => {
           <div className="flex flex-col gap-4 sm:flex-row">
             <Button 
               size="lg"
-              className="group bg-gradient-primary glow-effect text-base font-bold uppercase tracking-wide transition-all hover:shadow-strong"
+              className="group bg-primary text-primary-foreground text-base font-semibold shadow-md hover:shadow-lg transition-all"
             >
               Explorar Peças
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -49,7 +49,7 @@ export const HeroSection = () => {
             <Button 
               size="lg" 
               variant="outline"
-              className="border-2 border-primary bg-transparent text-base font-bold uppercase tracking-wide text-foreground hover:bg-primary hover:text-primary-foreground"
+              className="border-2 border-primary bg-transparent text-base font-semibold text-foreground hover:bg-primary hover:text-primary-foreground"
             >
               <MessageCircle className="mr-2 h-5 w-5" />
               WhatsApp

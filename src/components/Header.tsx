@@ -11,8 +11,8 @@ export const Header = () => {
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="diagonal-cut-full bg-gradient-primary px-6 py-3">
-              <h1 className="font-display text-xl font-bold tracking-tight text-primary-foreground md:text-2xl">
+            <div className="bg-primary px-6 py-3 rounded-lg">
+              <h1 className="font-display text-xl font-bold text-primary-foreground md:text-2xl">
                 AUTO PEÇAS<br />
                 <span className="text-base md:text-lg">GAÚCHO</span>
               </h1>
