@@ -54,17 +54,16 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Orbitron', 'Inter', 'sans-serif'],
+        display: ['Inter', 'system-ui', 'sans-serif'],
       },
       backgroundImage: {
         'gradient-primary': 'var(--gradient-primary)',
-        'gradient-metallic': 'var(--gradient-metallic)',
-        'gradient-dark': 'var(--gradient-dark)',
+        'gradient-secondary': 'var(--gradient-secondary)',
       },
       boxShadow: {
-        'glow': 'var(--shadow-glow)',
-        'strong': 'var(--shadow-strong)',
-        'metallic': 'var(--shadow-metallic)',
+        'sm': 'var(--shadow-sm)',
+        'md': 'var(--shadow-md)',
+        'lg': 'var(--shadow-lg)',
       },
       borderRadius: {
         lg: "var(--radius)",

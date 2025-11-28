@@ -55,13 +55,13 @@ export const ProductsSection = () => {
         {/* Header */}
         <div className="mb-12 text-center">
           <div className="mb-4 inline-block">
-            <div className="diagonal-cut-full bg-primary/10 px-4 py-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-primary">
+            <div className="bg-primary/10 border-l-4 border-primary px-4 py-2 rounded">
+              <span className="text-sm font-semibold tracking-wide text-primary">
                 Produtos em Destaque
               </span>
             </div>
           </div>
-          <h2 className="mb-4 font-display text-3xl font-black uppercase tracking-tight text-foreground md:text-5xl">
+          <h2 className="mb-4 font-display text-3xl font-bold text-foreground md:text-5xl">
             Peças de Alta Qualidade
           </h2>
           <p className="mx-auto max-w-2xl text-muted-foreground">
@@ -74,13 +74,13 @@ export const ProductsSection = () => {
           {products.map((product, index) => (
             <Card 
               key={index}
-              className="group automotive-hover overflow-hidden border-border bg-card transition-all"
+              className="group modern-hover overflow-hidden border-border bg-card transition-all rounded-xl"
             >
               {/* Product Image */}
               <div className="relative flex h-48 items-center justify-center bg-muted">
                 <div className="text-6xl">{product.image}</div>
                 <div className="absolute top-2 right-2">
-                  <div className="rounded-full bg-background px-3 py-1 text-xs font-bold text-foreground">
+                  <div className="rounded-full bg-background px-3 py-1 text-xs font-semibold text-foreground">
                     {product.brand}
                   </div>
                 </div>
@@ -88,7 +88,7 @@ export const ProductsSection = () => {
 
               {/* Product Info */}
               <div className="p-4">
-                <h3 className="mb-2 font-display text-base font-bold text-foreground">
+                <h3 className="mb-2 font-display text-base font-semibold text-foreground">
                   {product.name}
                 </h3>
                 <p className="mb-3 text-xs text-muted-foreground">
@@ -102,7 +102,7 @@ export const ProductsSection = () => {
                 </div>
 
                 <Button 
-                  className="w-full bg-gradient-primary font-bold uppercase tracking-wide transition-all hover:shadow-glow"
+                  className="w-full bg-primary text-primary-foreground font-semibold shadow-md hover:shadow-lg transition-all"
                   size="sm"
                 >
                   <ShoppingCart className="mr-2 h-4 w-4" />
@@ -118,7 +118,7 @@ export const ProductsSection = () => {
           <Button 
             size="lg"
             variant="outline"
-            className="border-2 border-primary text-base font-bold uppercase tracking-wide hover:bg-primary hover:text-primary-foreground"
+            className="border-2 border-primary text-base font-semibold hover:bg-primary hover:text-primary-foreground"
           >
             Ver Todos os Produtos
           </Button>
