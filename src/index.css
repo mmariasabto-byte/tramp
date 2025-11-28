@@ -10,48 +10,48 @@ All colors MUST be HSL.
   :root {
     /* Auto Peças Gaúcho - Design System Futurista Automotivo */
     
-    /* Cores principais - Vermelho e Preto Técnico */
-    --primary: 0 100% 42%;              /* Vermelho #D40000 */
-    --primary-foreground: 0 0% 100%;     /* Branco em botões vermelhos */
-    --primary-dark: 0 100% 27%;          /* Vermelho escuro #8A0000 */
+    /* Cores principais - Amarelo e Azul Técnico */
+    --primary: 45 100% 51%;              /* Amarelo vibrante #FFC107 */
+    --primary-foreground: 0 0% 0%;       /* Preto em botões amarelos */
+    --primary-dark: 38 100% 41%;         /* Amarelo escuro #D39E00 */
     
-    --secondary: 0 0% 78%;               /* Cinza metálico #C8C8C8 */
-    --secondary-foreground: 0 0% 5%;     /* Texto escuro em cinza */
+    --secondary: 211 100% 50%;           /* Azul elétrico #0066FF */
+    --secondary-foreground: 0 0% 100%;   /* Branco em azul */
     
-    --accent: 0 0% 61%;                  /* Cinza técnico #9B9B9B */
+    --accent: 211 100% 35%;              /* Azul profundo #0047B3 */
     --accent-foreground: 0 0% 100%;
     
-    --background: 0 0% 5%;               /* Preto técnico #0C0C0C */
-    --background-alt: 0 0% 10%;          /* Preto futurista #1A1A1A */
+    --background: 220 20% 8%;            /* Azul escuro técnico #0F1419 */
+    --background-alt: 220 18% 12%;       /* Azul escuro futurista #1A1F28 */
     --foreground: 0 0% 100%;             /* Branco para textos */
     
-    --card: 0 0% 10%;
+    --card: 220 18% 12%;
     --card-foreground: 0 0% 100%;
     
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 78%;
+    --muted: 220 15% 18%;
+    --muted-foreground: 45 50% 75%;
     
-    --border: 0 0% 20%;
-    --input: 0 0% 15%;
-    --ring: 0 100% 42%;
+    --border: 211 30% 25%;
+    --input: 220 15% 15%;
+    --ring: 45 100% 51%;
     
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
     
-    --popover: 0 0% 10%;
+    --popover: 220 18% 12%;
     --popover-foreground: 0 0% 100%;
     
     --radius: 0.5rem;
     
     /* Gradientes futuristas */
-    --gradient-primary: linear-gradient(135deg, hsl(0 100% 42%) 0%, hsl(0 100% 27%) 100%);
-    --gradient-metallic: linear-gradient(135deg, hsl(0 0% 78%) 0%, hsl(0 0% 61%) 100%);
-    --gradient-dark: linear-gradient(180deg, hsl(0 0% 10%) 0%, hsl(0 0% 5%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(45 100% 51%) 0%, hsl(38 100% 41%) 100%);
+    --gradient-metallic: linear-gradient(135deg, hsl(211 100% 50%) 0%, hsl(211 100% 35%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(220 18% 12%) 0%, hsl(220 20% 8%) 100%);
     
     /* Sombras e efeitos */
-    --shadow-glow: 0 0 30px hsla(0, 100%, 42%, 0.3);
-    --shadow-strong: 0 10px 40px -10px hsla(0, 100%, 42%, 0.4);
-    --shadow-metallic: 0 5px 20px -5px hsla(0, 0%, 0%, 0.6);
+    --shadow-glow: 0 0 30px hsla(45, 100%, 51%, 0.4);
+    --shadow-strong: 0 10px 40px -10px hsla(45, 100%, 51%, 0.5);
+    --shadow-metallic: 0 5px 20px -5px hsla(211, 100%, 35%, 0.6);
     
     /* Transições suaves */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -134,7 +134,7 @@ All colors MUST be HSL.
   }
   
   .glow-effect:hover {
-    box-shadow: 0 0 40px hsla(0, 100%, 42%, 0.5);
+    box-shadow: 0 0 40px hsla(45, 100%, 51%, 0.6);
   }
 }
 
