@@ -1,54 +1,218 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart } from "lucide-react";
-
-interface Product {
-  name: string;
-  brand: string;
-  compatibility: string;
-  price: string;
-  image: string;
-}
+import { useCart } from "@/context/CartContext";
+import { Product } from "@/data/products";
 
 const products: Product[] = [
   // Chevrolet
-  { name: "Filtro de Óleo GM Onix", brand: "Chevrolet", compatibility: "Onix 1.0/1.4", price: "R$ 45,90", image: "🔧" },
-  { name: "Pastilha de Freio Cruze", brand: "Chevrolet", compatibility: "Cruze 2012-2020", price: "R$ 189,90", image: "🔩" },
-  { name: "Amortecedor Dianteiro S10", brand: "Chevrolet", compatibility: "S10 2012+", price: "R$ 389,90", image: "⚙️" },
-  { name: "Bomba de Combustível Prisma", brand: "Chevrolet", compatibility: "Prisma 1.0/1.4", price: "R$ 459,90", image: "⛽" },
-  
+  {
+    id: 1001,
+    name: "Banco Completo Onix",
+    manufacturer: "Chevrolet",
+    description: "Onix 2013-2019",
+    price: 899.90,
+    image: "/assets/products-img/banco-completo-onix.jpg",
+  },
+  {
+    id: 1002,
+    name: "Módulo Injeção Onix",
+    manufacturer: "Chevrolet",
+    description: "Onix 1.0/1.4",
+    price: 459.90,
+    image: "/assets/products-img/modulo-injecao-onix.jpg",
+  },
+  {
+    id: 1003,
+    name: "Parachoque Traseiro Sonic",
+    manufacturer: "Chevrolet",
+    description: "Sonic 2012-2014",
+    price: 389.90,
+    image: "/assets/products-img/parachoque-traseiro-sonic.jpg",
+  },
+  {
+    id: 1004,
+    name: "Compressor Ar Spin",
+    manufacturer: "Chevrolet",
+    description: "Spin 1.8",
+    price: 789.90,
+    image: "/assets/products-img/compresso-ar-spin.jpg",
+  },
+
   // Volkswagen
-  { name: "Kit Embreagem Gol G5", brand: "Volkswagen", compatibility: "Gol G5/G6 1.0", price: "R$ 599,90", image: "🔧" },
-  { name: "Vela de Ignição Polo", brand: "Volkswagen", compatibility: "Polo 1.6 MSI", price: "R$ 89,90", image: "⚡" },
-  { name: "Pastilha de Freio Virtus", brand: "Volkswagen", compatibility: "Virtus 2018+", price: "R$ 179,90", image: "🔩" },
-  { name: "Bateria 60Ah VW", brand: "Volkswagen", compatibility: "Gol/Voyage/Fox", price: "R$ 389,90", image: "🔋" },
-  
+  {
+    id: 1005,
+    name: "Motor Gol 1.0",
+    manufacturer: "Volkswagen",
+    description: "Gol G5/G6",
+    price: 2599.90,
+    image: "/assets/products-img/motor-gol1.0.png",
+  },
+  {
+    id: 1006,
+    name: "Capô Gol G3",
+    manufacturer: "Volkswagen",
+    description: "Gol G3",
+    price: 289.90,
+    image: "/assets/products-img/capo-gol-g3.png",
+  },
+  {
+    id: 1007,
+    name: "Parachoque Dianteiro Voyage",
+    manufacturer: "Volkswagen",
+    description: "Voyage G5",
+    price: 179.90,
+    image: "/assets/products-img/parachoque-dianteiro-voyage-g5.jpg",
+  },
+  {
+    id: 1008,
+    name: "Câmbio Manual Gol",
+    manufacturer: "Volkswagen",
+    description: "Gol 2011+",
+    price: 1299.90,
+    image: "/assets/products-img/cambio-manual-gol-2011.jpg",
+  },
+
   // Fiat
-  { name: "Sensor de Oxigênio Palio", brand: "Fiat", compatibility: "Palio 1.0/1.4", price: "R$ 189,90", image: "📡" },
-  { name: "Filtro de Ar Strada", brand: "Fiat", compatibility: "Strada 1.4", price: "R$ 49,90", image: "🌬️" },
-  { name: "Correia Dentada Uno", brand: "Fiat", compatibility: "Uno Fire 1.0", price: "R$ 89,90", image: "🔗" },
-  { name: "Radiador Toro", brand: "Fiat", compatibility: "Toro 1.8/2.0", price: "R$ 789,90", image: "🌡️" },
-  
+  {
+    id: 1009,
+    name: "Banco Completo Punto",
+    manufacturer: "Fiat",
+    description: "Punto 2008-2012",
+    price: 699.90,
+    image: "/assets/products-img/banco-completo-punto.jpg",
+  },
+  {
+    id: 1010,
+    name: "Chave de Seta Fiat 500",
+    manufacturer: "Fiat",
+    description: "Fiat 500",
+    price: 289.90,
+    image: "/assets/products-img/chave-de-seta-fiat500.jpg",
+  },
+  {
+    id: 1011,
+    name: "Módulo Tração Toro",
+    manufacturer: "Fiat",
+    description: "Toro 4x4",
+    price: 899.90,
+    image: "/assets/products-img/modulo-tracao-toro.jpg",
+  },
+  {
+    id: 1012,
+    name: "Porta Dianteira Mobi",
+    manufacturer: "Fiat",
+    description: "Mobi 2016+",
+    price: 459.90,
+    image: "/assets/products-img/porta-dianteira-mobi.jpg",
+  },
+
   // Ford
-  { name: "Filtro Combustível Ka", brand: "Ford", compatibility: "Ka 1.0/1.5", price: "R$ 59,90", image: "⛽" },
-  { name: "Pastilha de Freio Fiesta", brand: "Ford", compatibility: "Fiesta 2011+", price: "R$ 169,90", image: "🔩" },
-  { name: "Bomba D'água Ecosport", brand: "Ford", compatibility: "Ecosport 2.0", price: "R$ 279,90", image: "💧" },
-  { name: "Kit Velas Focus", brand: "Ford", compatibility: "Focus 2.0", price: "R$ 159,90", image: "⚡" },
-  
+  {
+    id: 1013,
+    name: "Banco Completo Ford Ka",
+    manufacturer: "Ford",
+    description: "Ka 2015+",
+    price: 599.90,
+    image: "/assets/products-img/banco-completo-fordka.jpg",
+  },
+  {
+    id: 1014,
+    name: "Motor Ford Ka",
+    manufacturer: "Ford",
+    description: "Ka 1.0 3C",
+    price: 3599.90,
+    image: "/assets/products-img/motor-fordka.jpg",
+  },
+  {
+    id: 1015,
+    name: "Câmbio Manual Fiesta",
+    manufacturer: "Ford",
+    description: "Fiesta Rocam",
+    price: 1199.90,
+    image: "/assets/products-img/cambio-manual-fiesta.jpg",
+  },
+  {
+    id: 1016,
+    name: "Porta Dianteira Ecosport",
+    manufacturer: "Ford",
+    description: "Ecosport 2013+",
+    price: 589.90,
+    image: "/assets/products-img/porta-dianteira-ecosport.jpg",
+  },
+
   // Toyota
-  { name: "Pastilha de Freio Corolla", brand: "Toyota", compatibility: "Corolla 2015+", price: "R$ 229,90", image: "🔩" },
-  { name: "Filtro de Óleo Hilux", brand: "Toyota", compatibility: "Hilux Diesel", price: "R$ 79,90", image: "🔧" },
-  { name: "Bateria 70Ah Toyota", brand: "Toyota", compatibility: "Corolla/RAV4", price: "R$ 489,90", image: "🔋" },
-  { name: "Amortecedor Etios", brand: "Toyota", compatibility: "Etios 2013+", price: "R$ 349,90", image: "⚙️" },
-  
+  {
+    id: 1017,
+    name: "Alternador Hilux",
+    manufacturer: "Toyota",
+    description: "Hilux 3.0",
+    price: 899.90,
+    image: "/assets/products-img/alternador-hilux.jpg",
+  },
+  {
+    id: 1018,
+    name: "Caixa Transferência Hilux",
+    manufacturer: "Toyota",
+    description: "Hilux 4x4",
+    price: 2899.90,
+    image: "/assets/products-img/caixa-transferencia-hilux.jpg",
+  },
+  {
+    id: 1019,
+    name: "Farol Corolla",
+    manufacturer: "Toyota",
+    description: "Corolla 2015-2017",
+    price: 459.90,
+    image: "/assets/products-img/farol-corolla.jpg",
+  },
+  {
+    id: 1020,
+    name: "Motor Etios",
+    manufacturer: "Toyota",
+    description: "Etios 1.3/1.5",
+    price: 2299.90,
+    image: "/assets/products-img/motor-etios.jpg",
+  },
+
   // Honda
-  { name: "Filtro de Cabine Civic", brand: "Honda", compatibility: "Civic 2017+", price: "R$ 69,90", image: "🌬️" },
-  { name: "Pastilha HR-V", brand: "Honda", compatibility: "HR-V 2015+", price: "R$ 199,90", image: "🔩" },
-  { name: "Vela Iridium Fit", brand: "Honda", compatibility: "Fit 1.5", price: "R$ 129,90", image: "⚡" },
-  { name: "Bomba Combustível City", brand: "Honda", compatibility: "City 2015+", price: "R$ 529,90", image: "⛽" },
+  {
+    id: 1021,
+    name: "Banco Completo Civic",
+    manufacturer: "Honda",
+    description: "Civic G9",
+    price: 999.90,
+    image: "/assets/products-img/banco-completo-civic.jpg",
+  },
+  {
+    id: 1022,
+    name: "Câmbio Automático Fit",
+    manufacturer: "Honda",
+    description: "Fit CVT",
+    price: 2599.90,
+    image: "/assets/products-img/cambio-automatico-fit.jpg",
+  },
+  {
+    id: 1023,
+    name: "Motor Honda Fit",
+    manufacturer: "Honda",
+    description: "Fit 1.4/1.5",
+    price: 2899.90,
+    image: "/assets/products-img/motor-honda-fit.jpg",
+  },
+  {
+    id: 1024,
+    name: "Porta Dianteira City",
+    manufacturer: "Honda",
+    description: "City 2015+",
+    price: 559.90,
+    image: "/assets/products-img/porta-dianteira-city.jpg",
+  },
 ];
 
 export const ProductsSection = () => {
+  const { addToCart } = useCart();
+
   return (
     <section id="produtos" className="bg-background-alt py-20 md:py-32">
       <div className="container mx-auto px-4">
@@ -71,17 +235,21 @@ export const ProductsSection = () => {
 
         {/* Products Grid */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {products.map((product, index) => (
-            <Card 
-              key={index}
+          {products.map((product) => (
+            <Card
+              key={product.id}
               className="group modern-hover overflow-hidden border-border bg-card transition-all rounded-xl"
             >
               {/* Product Image */}
-              <div className="relative flex h-48 items-center justify-center bg-muted">
-                <div className="text-6xl">{product.image}</div>
+              <div className="aspect-square relative overflow-hidden bg-muted">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
                 <div className="absolute top-2 right-2">
-                  <div className="rounded-full bg-background px-3 py-1 text-xs font-semibold text-foreground">
-                    {product.brand}
+                  <div className="rounded-full bg-background px-3 py-1 text-xs font-semibold text-foreground shadow-sm">
+                    {product.manufacturer}
                   </div>
                 </div>
               </div>
@@ -92,18 +260,19 @@ export const ProductsSection = () => {
                   {product.name}
                 </h3>
                 <p className="mb-3 text-xs text-muted-foreground">
-                  {product.compatibility}
+                  {product.description}
                 </p>
-                
+
                 <div className="mb-4 flex items-baseline gap-2">
                   <span className="font-display text-2xl font-bold text-primary">
-                    {product.price}
+                    {product.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                   </span>
                 </div>
 
-                <Button 
+                <Button
                   className="w-full bg-primary text-primary-foreground font-semibold shadow-md hover:shadow-lg transition-all"
                   size="sm"
+                  onClick={() => addToCart(product)}
                 >
                   <ShoppingCart className="mr-2 h-4 w-4" />
                   Adicionar
@@ -111,19 +280,25 @@ export const ProductsSection = () => {
               </div>
             </Card>
           ))}
-        </div>
+        </div> {/* FECHAMENTO DO PRODUCTS GRID */}
 
         {/* View More */}
         <div className="mt-12 text-center">
-          <Button 
+          <Button
             size="lg"
             variant="outline"
             className="border-2 border-primary text-base font-semibold hover:bg-primary hover:text-primary-foreground"
+            onClick={() => {
+              const element = document.getElementById('montadoras');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
           >
             Ver Todos os Produtos
           </Button>
         </div>
-      </div>
+      </div> {/* FECHAMENTO DO CONTAINER */}
     </section>
   );
 };
