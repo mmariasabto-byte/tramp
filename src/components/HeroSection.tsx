@@ -53,13 +53,15 @@ export const HeroSection = () => {
             </Button>
 
             <Button
-              size="lg"
-              variant="outline"
-              className="border-2 border-primary bg-transparent text-base font-semibold text-foreground hover:bg-primary hover:text-primary-foreground"
+            size="lg"
+            variant="outline"
+            className="border-2 border-primary bg-transparent text-base font-semibold text-foreground hover:bg-primary hover:text-primary-foreground"
+             onClick={() => window.open("https://w.app/2izx1c", "_blank")}
             >
-              <MessageCircle className="mr-2 h-5 w-5" />
-              <a href="https://w.app/2izx1c" target="_blank">WhatsApp</a>
-            </Button>
+           <MessageCircle className="mr-2 h-5 w-5" />
+            WhatsApp
+          </Button>
+
           </div>
 
           {/* Stats */}
